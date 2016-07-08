@@ -129,7 +129,7 @@ IB_DESIGNABLE
 
 /**
  A bitmask of `NSTextCheckingType` which are used to automatically detect links in the label text.
-
+ 
  @warning You must specify `enabledTextCheckingTypes` before setting the `text`, with either `setText:` or `setText:afterInheritingLabelAttributesAndConfiguringWithBlock:`.
  */
 @property (nonatomic, assign) NSTextCheckingTypes enabledTextCheckingTypes;
@@ -262,7 +262,7 @@ IB_DESIGNABLE
 
 /**
  Calculate and return the size that best fits an attributed string, given the specified constraints on size and number of lines.
-
+ 
  @param attributedString The attributed string.
  @param size The maximum dimensions used to calculate size.
  @param numberOfLines The maximum number of lines in the text to draw, if the constraining size cannot accomodate the full attributed string.
@@ -281,7 +281,7 @@ IB_DESIGNABLE
  Sets the text displayed by the label.
  
  @param text An `NSString` or `NSAttributedString` object to be displayed by the label. If the specified text is an `NSString`, the label will display the text like a `UILabel`, inheriting the text styles of the label. If the specified text is an `NSAttributedString`, the label text styles will be overridden by the styles specified in the attributed string.
-  
+ 
  @discussion This method overrides `UILabel -setText:` to accept both `NSString` and `NSAttributedString` objects. This string is `nil` by default.
  */
 - (void)setText:(id)text;
@@ -404,7 +404,7 @@ afterInheritingLabelAttributesAndConfiguringWithBlock:(NSMutableAttributedString
 
 /**
  Adds a link to transit information for a specified range in the label text.
-
+ 
  @param components A dictionary containing the transit components. The currently supported keys are `NSTextCheckingAirlineKey` and `NSTextCheckingFlightKey`.
  @param range The range in the label text of the link. The range must not exceed the bounds of the receiver.
  
@@ -494,7 +494,7 @@ didSelectLinkWithPhoneNumber:(NSString *)phoneNumber;
 
 /**
  Tells the delegate that the user did select a link to transit information
-
+ 
  @param label The label whose link was selected.
  @param components A dictionary containing the transit components. The currently supported keys are `NSTextCheckingAirlineKey` and `NSTextCheckingFlightKey`.
  */
@@ -677,5 +677,7 @@ typedef void (^TTTAttributedLabelLinkBlock) (TTTAttributedLabel *, TTTAttributed
  */
 - (instancetype)initWithAttributesFromLabel:(TTTAttributedLabel*)label
                          textCheckingResult:(NSTextCheckingResult *)result;
+
+- (CFIndex)characterIndexAtPoint:(CGPoint)p;
 
 @end
